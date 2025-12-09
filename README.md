@@ -110,14 +110,4 @@ A frequency table is created.
 
 -   Jahid Hasan Aoni-24145100
 
-------------------------------------------------------------------------
 
-## ✔️ Version Control Instructions
-
-If using RStudio + Git:
-
-1.  Create a new file **README.md**\
-2.  Paste this content\
-3.  Save\
-4.  Go to the **Git** pane → select `README.md`\
-5.  Commit → Push
