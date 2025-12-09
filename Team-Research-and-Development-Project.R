@@ -79,19 +79,6 @@ hist(df$`Average IQ`,
      main="Distribution of Global IQ",
      xlab="Average IQ")
 
-length(df$IQgroup)
-length(df$Continent)
-
-sum(is.na(df$Continent))
-sum(is.na(df$`Average IQ`))
-
-tbl <- table(df$IQgroup, df$Continent)
-barplot(prop.table(tbl, margin=2),
-        main="Proportion of IQ Groups per Continent",
-        xlab="Continent",
-        ylab="Proportion",
-        col=c("red","yellow","green"))
-
 table(df$Continent)
 
 summary(df$`Average IQ`)
