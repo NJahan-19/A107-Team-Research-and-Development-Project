@@ -72,3 +72,85 @@ aggregate(`Nobel Prices` ~ Continent, df, sum)
 median_iq <- median(df$`Average IQ`, na.rm = TRUE)
 df$IQ_level <- ifelse(df$`Average IQ` >= median_iq, "Above Median", "Below Median")
 table(df$IQ_level)
+
+hist(df$`Average IQ`,
+     col="lightgreen",
+     breaks=20,
+     main="Distribution of Global IQ",
+     xlab="Average IQ")
+
+length(df$IQgroup)
+length(df$Continent)
+
+sum(is.na(df$Continent))
+sum(is.na(df$`Average IQ`))
+
+tbl <- table(df$IQgroup, df$Continent)
+barplot(prop.table(tbl, margin=2),
+        main="Proportion of IQ Groups per Continent",
+        xlab="Continent",
+        ylab="Proportion",
+        col=c("red","yellow","green"))
+
+table(df$Continent)
+
+summary(df$`Average IQ`)
+
+head(df[order(-df$`Average IQ`), c("Country", "Average IQ")], 10)
+
+head(df[order(df$`Average IQ`), c("Country", "Average IQ")], 10)
+
+aggregate(`Average IQ` ~ Continent, df, mean)
+
+aggregate(df$`Literacy Rate` ~ df$Continent, FUN=mean)
+
+df$IQ_group <- cut(df$`Average IQ`,
+                   breaks=c(0, 85, 100, 200),
+                   labels=c("Low", "Medium", "High"))
+
+table(df$IQ_group)
+
+tbl <- table(df$IQ_group, df$Continent)
+
+tbl <- df[order(-df$`Literacy Rate`), c("Country", "Literacy Rate")][1:15, ]
+
+hist(df$`Average IQ`,
+     col="lightgreen",
+     breaks=20,
+     main="Distribution of Global IQ",
+     xlab="Average IQ")
+
+length(df$IQgroup)
+length(df$Continent)
+
+sum(is.na(df$Continent))
+sum(is.na(df$`Average IQ`))
+
+tbl <- table(df$IQgroup, df$Continent)
+barplot(prop.table(tbl, margin=2),
+        main="Proportion of IQ Groups per Continent",
+        xlab="Continent",
+        ylab="Proportion",
+        col=c("red","yellow","green"))
+
+table(df$Continent)
+
+summary(df$`Average IQ`)
+
+head(df[order(-df$`Average IQ`), c("Country", "Average IQ")], 10)
+
+head(df[order(df$`Average IQ`), c("Country", "Average IQ")], 10)
+
+aggregate(`Average IQ` ~ Continent, df, mean)
+
+aggregate(df$`Literacy Rate` ~ df$Continent, FUN=mean)
+
+df$IQ_group <- cut(df$`Average IQ`,
+                   breaks=c(0, 85, 100, 200),
+                   labels=c("Low", "Medium", "High"))
+
+table(df$IQ_group)
+
+tbl <- table(df$IQ_group, df$Continent)
+
+tbl <- df[order(-df$`Literacy Rate`), c("Country", "Literacy Rate")][1:15, ]
