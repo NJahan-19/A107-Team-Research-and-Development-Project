@@ -95,13 +95,3 @@ barplot(prop.table(tbl, margin=2),
 table(df$Continent)
 
 summary(df$`Average IQ`)
-
-head(df[order(-df$`Average IQ`), c("Country", "Average IQ")], 10)
-
-head(df[order(df$`Average IQ`), c("Country", "Average IQ")], 10)
-
-aggregate(df$`Literacy Rate` ~ df$Continent, FUN=mean)
-
-tbl <- table(df$IQ_group, df$Continent)
-
-df[order(-df$`Literacy Rate`), c("Country", "Literacy Rate")][1:15, ]
