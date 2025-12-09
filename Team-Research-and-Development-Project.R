@@ -100,11 +100,8 @@ head(df[order(-df$`Average IQ`), c("Country", "Average IQ")], 10)
 
 head(df[order(df$`Average IQ`), c("Country", "Average IQ")], 10)
 
-aggregate(`Average IQ` ~ Continent, df, mean)
-
 aggregate(df$`Literacy Rate` ~ df$Continent, FUN=mean)
 
 tbl <- table(df$IQ_group, df$Continent)
-tbl
 
 df[order(-df$`Literacy Rate`), c("Country", "Literacy Rate")][1:15, ]
