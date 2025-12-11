@@ -1,0 +1,17 @@
+# EXPORT RESULTS
+# =================
+# Create a results dataframe
+results <- list(
+  overall_correlation = correlation_test,
+  continent_correlations = cor_by_continent,
+  regression_summary = summary_model,
+  anova_results = anova_summary
+)
+
+# Export summary statistics
+write_csv(continent_stats, "continent_summary_stats.csv")
+write_csv(cor_by_continent, "correlation_by_continent.csv")
+
+# Export model coefficients
+model_coef <- as.data.frame(summary_model$coefficients)
+write_csv(model_coef, "regression_coefficients.csv")
