@@ -289,10 +289,10 @@ You may also run additional scripts for specific tasks:
 
 # 👥 Authors
 
-**Jahid Hasan Aoni (24145100)**
-**Md Jamilur Rahaman (24135539)**
-**Nusrat Jahan (24146373)**
-**Fahmida Khanom (24153498)**
-**Rafi Ahmad **
+- **Jahid Hasan Aoni (24145100)**
+- **Md Jamilur Rahaman (24135539)**
+- **Nusrat Jahan (24146373)**
+- **Fahmida Khanom (24153498)**
+- **Rafi Ahmad **
 
 
