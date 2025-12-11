@@ -93,3 +93,28 @@ box_plot <- ggplot(iq_clean, aes(x = reorder(Continent, Average_IQ, median),
 ggsave("IQ_by_continent_boxplot.png", box_plot, width = 9, height = 6, dpi = 300)
 print(box_plot)
 
+# Correlation test by continent
+cor_by_continent <- iq_clean %>%
+  group_by(Continent) %>%
+  summarise(
+    correlation = cor(Average_IQ, HDI_2021, use = "complete.obs"),
+    p_value = cor.test(Average_IQ, HDI_202I_2021)$p.value,
+    n = n()
+  )
+
+print("Correlation by Continent:")
+print(cor_by_continent)
+
+# Linear regression model
+model <- lm(Average_IQ ~ HDI_2021 + Continent + Literacy_Rate, data = iq_clean)
+summary_model <- summary(model)
+
+print("Linear Regression Model Summary:")
+print(summary_model)
+
+# ANOVA test for differences between continents
+anova_test <- aov(Average_IQ ~ Continent, data = iq_clean)
+anova_summary <- summary(anova_test)
+
+print("ANOVA Test Results (IQ by Continent):")
+print(anova_summary)
