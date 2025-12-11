@@ -50,3 +50,30 @@ correlation_test <- cor.test(iq_clean$Average_IQ, iq_clean$HDI_2021,
                              method = "pearson")
 print("Overall Correlation Test:")
 print(correlation_test)
+
+# 3. VISUALIZATIONS
+# =================
+# Set theme for better visualizations
+theme_set(theme_minimal())
+
+# MAIN PLOT: Scatter plot of IQ vs HDI by Continent
+main_plot <- ggplot(iq_clean, aes(x = HDI_2021, y = Average_IQ, color = Continent)) +
+  geom_point(alpha = 0.7, size = 3) +
+  geom_smooth(method = "lm", se = FALSE, size = 0.8) +
+  labs(
+    title = "Relationship Between Average IQ and Human Development Index (HDI)",
+    subtitle = "Colored by Continent with Linear Trend Lines",
+    x = "Human Development Index (HDI) 2021",
+    y = "Average IQ",
+    color = "Continent"
+  ) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5),
+    legend.position = "bottom"
+  ) +
+  scale_color_brewer(palette = "Set2")
+
+# Save main plot
+ggsave("IQ_HDI_scatter.png", main_plot, width = 10, height = 7, dpi = 300)
+print(main_plot)
