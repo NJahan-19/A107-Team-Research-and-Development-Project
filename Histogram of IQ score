@@ -1,0 +1,16 @@
+#  Histogram of IQ scores
+hist_plot <- ggplot(iq_clean, aes(x = Average_IQ)) +
+  geom_histogram(binwidth = 2, fill = "steelblue", alpha = 0.7, color = "black") +
+  geom_vline(aes(xintercept = mean(Average_IQ)), 
+             color = "red", linetype = "dashed", size = 1) +
+  labs(
+    title = "Distribution of Average IQ Scores Across Countries",
+    x = "Average IQ",
+    y = "Number of Countries"
+  ) +
+  annotate("text", x = mean(iq_clean$Average_IQ) + 10, y = 15,
+           label = paste("Mean =", round(mean(iq_clean$Average_IQ), 2)),
+           color = "red")
+
+ggsave("IQ_distribution_histogram.png", hist_plot, width = 9, height = 6, dpi = 300)
+print(hist_plot)
