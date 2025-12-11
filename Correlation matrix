@@ -1,0 +1,25 @@
+# Correlation matrix
+numeric_data <- iq_clean %>%
+  select(Average_IQ, HDI_2021, Literacy_Rate, GNI_2021, Mean_years_schooling)
+
+cor_matrix <- cor(numeric_data, use = "complete.obs")
+
+cor_plot <- corrplot(cor_matrix, 
+         method = "color",
+         type = "upper",
+         tl.col = "black",
+         tl.srt = 45,
+         addCoef.col = "black",
+         number.cex = 0.7,
+         title = "Correlation Matrix of Selected Variables")
+
+png("correlation_matrix.png", width = 800, height = 800)
+corrplot(cor_matrix, 
+         method = "color",
+         type = "upper",
+         tl.col = "black",
+         tl.srt = 45,
+         addCoef.col = "black",
+         number.cex = 0.7,
+         title = "Correlation Matrix of Selected Variables")
+dev.off()
