@@ -1,0 +1,21 @@
+# Load necessary libraries
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(knitr)
+library(corrplot)
+
+# 1. LOAD AND CLEAN DATA
+# ======================
+# Read the main dataset
+iq_data <- read_csv("avgIQpercountry.csv")
+
+# Check structure
+str(iq_data)
+summary(iq_data)
+
+# Clean column names
+colnames(iq_data) <- c("Rank", "Country", "Average_IQ", "Continent", 
+                       "Literacy_Rate", "Nobel_Prices", "HDI_2021", 
+                       "Mean_years_schooling", "GNI_2021", "Population_2023")
