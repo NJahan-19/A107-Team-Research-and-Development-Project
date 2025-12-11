@@ -1,3 +1,6 @@
+# Required R packages for the IQ Analysis Project
+# Install each package in R using: install.packages("package_name")
+
 readr
 tibble
 dplyr
