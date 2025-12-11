@@ -77,3 +77,19 @@ main_plot <- ggplot(iq_clean, aes(x = HDI_2021, y = Average_IQ, color = Continen
 # Save main plot
 ggsave("IQ_HDI_scatter.png", main_plot, width = 10, height = 7, dpi = 300)
 print(main_plot)
+#  Boxplot by continent
+box_plot <- ggplot(iq_clean, aes(x = reorder(Continent, Average_IQ, median), 
+                                 y = Average_IQ, fill = Continent)) +
+  geom_boxplot(alpha = 0.7) +
+  geom_jitter(width = 0.2, alpha = 0.5, size = 1.5) +
+  labs(
+    title = "Distribution of Average IQ Scores by Continent",
+    x = "Continent",
+    y = "Average IQ"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Set3")
+
+ggsave("IQ_by_continent_boxplot.png", box_plot, width = 9, height = 6, dpi = 300)
+print(box_plot)
+
