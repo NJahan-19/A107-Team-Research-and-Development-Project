@@ -1,0 +1,2 @@
+Logistic Regression Model: IQ_level ~ LiteracyRate + HDI + GNI + MeanYearsSchooling
+
