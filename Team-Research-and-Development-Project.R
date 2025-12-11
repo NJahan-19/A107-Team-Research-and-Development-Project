@@ -68,7 +68,7 @@ plot(df$`HDI (2021)`, df$`Average IQ`,
 aggregate(`Average IQ` ~ Continent, df, mean)
 aggregate(`Literacy Rate` ~ Continent, df, mean)
 aggregate(`Nobel Prices` ~ Continent, df, sum)
-
+mean(df$avarage IQ)
 median_iq <- median(df$`Average IQ`, na.rm = TRUE)
 df$IQ_level <- ifelse(df$`Average IQ` >= median_iq, "Above Median", "Below Median")
 table(df$IQ_level)
