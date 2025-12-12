@@ -88,3 +88,20 @@ print(cor.test(df_main$AverageIQ, df_main$HDI, method = "spearman"))
 df_compare <- df_main %>% filter(Continent %in% c("Asia", "Europe"))
 print(t.test(AverageIQ ~ Continent, data = df_compare))
 print(wilcox.test(AverageIQ ~ Continent, data = df_compare))
+
+#Comparison of proportions (Nobel Prizes: Asia vs Europe)
+df_prop <- df_main %>%
+  mutate(HasNobel = ifelse(NobelPrizes > 0, "Yes", "No")) %>%
+  filter(Continent %in% c("Asia", "Europe"))
+table_nobel <- table(df_prop$Continent, df_prop$HasNobel)
+print(table_nobel)
+#Fisher’s exact test is robust with small counts
+print(fisher.test(table_nobel))
+
+#Linear regression
+lm_model <- lm(AverageIQ ~ HDI + MeanYearsSchooling + LiteracyRate, data = df_main)
+print(summary(lm_model))
+par(mfrow = c(2,2))
+plot(lm_model)
+par(mfrow = c(1,1))
+
