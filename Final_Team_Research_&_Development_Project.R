@@ -61,4 +61,9 @@ df_main %>%
   geom_col() +
   labs(title = "Total Nobel Prizes by Continent", x = "Continent", y = "Total Nobel Prizes")
 
+# Scatterplot: GNI vs HDI (log x)
+ggplot(df_main, aes(x = GNI, y = HDI, color = Continent)) +
+  geom_point(alpha = 0.7) +
+  scale_x_log10() +
+  labs(title = "Gross National Income vs HDI", x = "GNI (log scale)", y = "HDI")
 
