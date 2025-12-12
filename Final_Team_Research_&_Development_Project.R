@@ -105,3 +105,22 @@ par(mfrow = c(2,2))
 plot(lm_model)
 par(mfrow = c(1,1))
 
+#Logistic regression
+df_main <- df_main %>%
+  mutate(HasNobel = ifelse(NobelPrizes > 0, 1, 0))
+log_model <- glm(HasNobel ~ HDI + AverageIQ, data = df_main, family = binomial)
+print(summary(log_model))
+
+or <- exp(coef(log_model))
+ci <- exp(confint(log_model))
+print(data.frame(Variable = names(or), OddsRatio = or, CI_lower = ci[,1], CI_upper = ci[,2]))
+
+#Correlation heatmap
+cor_matrix <- df_main %>%
+  select(AverageIQ, HDI, LiteracyRate, MeanYearsSchooling, GNI) %>%
+  cor(use = "complete.obs")
+print(round(cor_matrix, 2))
+
+corrplot(cor_matrix, method = "color", addCoef.col = "black",
+         tl.col = "black", tl.srt = 45, number.cex = 0.8,
+         title = "Correlation Heatmap", mar = c(0,0,2,0))
