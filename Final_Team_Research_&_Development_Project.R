@@ -66,4 +66,7 @@ ggplot(df_main, aes(x = GNI, y = HDI, color = Continent)) +
   geom_point(alpha = 0.7) +
   scale_x_log10() +
   labs(title = "Gross National Income vs HDI", x = "GNI (log scale)", y = "HDI")
-
+# Density plot: IQ by Continent
+ggplot(df_main, aes(x = AverageIQ, fill = Continent)) +
+  geom_density(alpha = 0.5) +
+  labs(title = "Density plot of Average IQ by Continent", x = "Average IQ", y = "Density")
