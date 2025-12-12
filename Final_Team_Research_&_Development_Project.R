@@ -83,3 +83,8 @@ print(shapiro.test(df_main$HDI))
 #Correlation tests
 print(cor.test(df_main$AverageIQ, df_main$HDI, method = "pearson"))
 print(cor.test(df_main$AverageIQ, df_main$HDI, method = "spearman"))
+
+#Comparison of means (Asia vs Europe)
+df_compare <- df_main %>% filter(Continent %in% c("Asia", "Europe"))
+print(t.test(AverageIQ ~ Continent, data = df_compare))
+print(wilcox.test(AverageIQ ~ Continent, data = df_compare))
