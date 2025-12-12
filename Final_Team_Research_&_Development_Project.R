@@ -37,5 +37,16 @@ by_continent <- df_main %>%
     total_population = sum(as.numeric(Population), na.rm = TRUE)
   )
 print(by_continent)
+#Visualisations
+# Scatterplot: IQ vs HDI
+ggplot(df_main, aes(x = HDI, y = AverageIQ, color = Continent)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(title = "Average IQ vs HDI", x = "HDI", y = "Average IQ")
+
+# Boxplot: IQ by Continent
+ggplot(df_main, aes(x = Continent, y = AverageIQ, fill = Continent)) +
+  geom_boxplot() +
+  labs(title = "IQ by Continent")
 
 
