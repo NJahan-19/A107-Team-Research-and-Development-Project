@@ -70,3 +70,16 @@ ggplot(df_main, aes(x = GNI, y = HDI, color = Continent)) +
 ggplot(df_main, aes(x = AverageIQ, fill = Continent)) +
   geom_density(alpha = 0.5) +
   labs(title = "Density plot of Average IQ by Continent", x = "Average IQ", y = "Density")
+# Scatterplot: Schooling vs IQ
+ggplot(df_main, aes(x = MeanYearsSchooling, y = AverageIQ, color = Continent)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Mean Years of Schooling vs Average IQ", x = "Mean Years of Schooling", y = "Average IQ")
+
+#Normality tests
+print(shapiro.test(df_main$AverageIQ))
+print(shapiro.test(df_main$HDI))
+
+#Correlation tests
+print(cor.test(df_main$AverageIQ, df_main$HDI, method = "pearson"))
+print(cor.test(df_main$AverageIQ, df_main$HDI, method = "spearman"))
