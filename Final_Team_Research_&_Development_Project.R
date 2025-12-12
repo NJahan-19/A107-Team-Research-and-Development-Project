@@ -20,4 +20,22 @@ df <- df %>%
     Population = `Population - 2023`
   ) %>%
   mutate(Continent = factor(Continent))
+#Filter valid rows
+df_main <- df %>% filter(!is.na(AverageIQ), !is.na(HDI))
+cat("Rows in df_main:", nrow(df_main), "\n")
+
+#Summary statistics
+print(summary(df_main))
+
+by_continent <- df_main %>%
+  group_by(Continent) %>%
+  summarise(
+    mean_IQ = mean(AverageIQ),
+    mean_HDI = mean(HDI),
+    mean_schooling = mean(MeanYearsSchooling, na.rm = TRUE),
+    mean_literacy = mean(LiteracyRate, na.rm = TRUE),
+    total_population = sum(as.numeric(Population), na.rm = TRUE)
+  )
+print(by_continent)
+
 
