@@ -48,5 +48,17 @@ ggplot(df_main, aes(x = HDI, y = AverageIQ, color = Continent)) +
 ggplot(df_main, aes(x = Continent, y = AverageIQ, fill = Continent)) +
   geom_boxplot() +
   labs(title = "IQ by Continent")
+# Histogram: HDI
+ggplot(df_main, aes(x = HDI)) +
+  geom_histogram(bins = 30, fill = "skyblue") +
+  labs(title = "HDI distribution", x = "HDI", y = "Count")
+
+# Bar chart: Nobel Prizes by Continent
+df_main %>%
+  group_by(Continent) %>%
+  summarise(total_nobel = sum(NobelPrizes, na.rm = TRUE)) %>%
+  ggplot(aes(x = Continent, y = total_nobel, fill = Continent)) +
+  geom_col() +
+  labs(title = "Total Nobel Prizes by Continent", x = "Continent", y = "Total Nobel Prizes")
 
 
