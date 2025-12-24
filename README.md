@@ -242,7 +242,7 @@ so all scripts can access it automatically.
 ### ⭐ Step 4 — Run the Main Code File
 Open and run the **main analysis script**:
 
-**`Team-Research-and-Development-Project.R`**
+**`main.R`**
 
 This file generates:
 - Top 10 IQ countries plot  
